@@ -1,4 +1,4 @@
-package basicWeb;
+package testSuite.basicWeb;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -12,6 +12,7 @@ import java.time.Duration;
 
 public class SeleniumTest {
     ChromeDriver chrome;
+    static String nameProject;
     @BeforeEach
     public void openBrowser() throws InterruptedException{
         System.setProperty("webdriver.chrome.driver","src/test/resources/chrome/chromedriver.exe");
@@ -32,39 +33,16 @@ public class SeleniumTest {
         Thread.sleep(5000);
     }
 
-    @Test
-    public void verifyCreateProject() throws InterruptedException {
 
-        //click add new project
-        chrome.findElement(By.id("Div2")).click();
-        //fill new project name textbox
-        chrome.findElement(By.id("NewProjNameInput")).sendKeys("TESTpR");
-        //click add
-        chrome.findElement(By.id("NewProjNameButton")).click();
-
-        Thread.sleep(5000);
-        Assertions.assertTrue((chrome.findElements(By.xpath("//td[text()='TESTpR']")).size() >= 1),
-                "NO SE CREO EL PROYECTO");
-        Thread.sleep(5000);
-    }
     @Test
     public void verifyUpdateProject() throws InterruptedException {
-        Actions actions = new Actions(chrome);
-
-        actions.moveToElement(chrome.findElement(By.xpath("//td[text()='TESTpR']")));
-
-        //click new project
-        chrome.findElement(By.xpath("//td[@class=ProjItemMenu]")).click();
-        //click menu
-        //click menu
-        chrome.findElement(By.className("edit")).click();
-
-        chrome.findElement(By.id("ItemEditTextbox")).sendKeys("nueevopro");
-
-
+        nameProject="nuevoProyecto1";
+        chrome.findElement(By.xpath("//td[text()='Add New Project']")).click();
+        chrome.findElement(By.id("NewProjNameInput")).sendKeys(nameProject);
+        chrome.findElement(By.id("NewProjNameButton")).click();
         Thread.sleep(5000);
-        Assertions.assertTrue((chrome.findElements(By.xpath("//td[text()='nueevopro']")).size() >= 1),
-                "NO SE ACTUALIZO EL PROYECTO");
+        Assertions.assertTrue((chrome.findElement(By.id("mainProjectList")).findElements(By.xpath("//li//td[text()='"+nameProject+"']")).size() == 1),
+                "ERROR no se pudo crear el proyecto");
         Thread.sleep(5000);
     }
     @AfterEach
