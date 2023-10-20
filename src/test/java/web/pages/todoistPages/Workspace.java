@@ -2,17 +2,28 @@ package web.pages.todoistPages;
 
 import web.controls.Button;
 import org.openqa.selenium.By;
+import web.controls.Control;
 import web.controls.TextBox;
 
 public class Workspace {
-    public Button profileButton = new Button(By.xpath("//button[@aria-label='Settings']"));
-
+    public Control todayTitle = new Control(By.xpath("//h1/span[text()='Today']"));
+    public Button profileButton = new Button(By.id(":r0:"));
     public Button settingsButton = new Button(By.id("user_menu_settings_menuitem"));
-    public Button addTaskBtn = new Button(By.xpath(("//li[@class='controller actions task_actions full_width_actions']//button")));
-    public TextBox taskNameTextBox = new TextBox(By.xpath("//p[@data-placeholder='Task name']"));
-    public TextBox taskDescTextBox = new TextBox(By.xpath("//p[@data-placeholder='Description']"));
-    public Button addProjectBtn = new Button(By.xpath("//button[@aria-label='Add project']"));
-    public Button addTaskInProjectViewBtn = new Button(By.xpath("//button[@class='plus_add_button']"));
-    public Button logoutButton = new Button(By.xpath("//span[contains(text(), 'Log out')]/parent::button"));
+    public Button logoutButton = new Button(By.xpath("//button[span[text()='Log out']]"));
+    public Control getProjectTitle(String name){
+        return new Control(By.xpath("//h1/span[text()='"+name+"']"));
+    }
 
+    public Button dismissButton = new Button(By.xpath("//button[@aria-label='Dismiss']"));
+
+    public Button addTaskButton = new Button(By.xpath("//button[span[text()='Add task']]"));
+    public TextBox taskNameInput = new TextBox(By.xpath("//p[@data-placeholder='Task name']"));
+    public Button addTaskConfirmButton = new Button(By.xpath("//button[@aria-label='Add task']"));
+    public Button getTaskButton(String content){
+        return new Button(By.xpath("//div[@class='task_content' and text()='"+content+"']"));
+    }
+
+    public Control getProfileName(String name){
+        return new Control(By.xpath("//button[@aria-label='Settings']/span[text()='"+name+"']"));
+    }
 }

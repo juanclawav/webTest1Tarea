@@ -20,7 +20,9 @@ public class MenuSection {
     public Button newestItem(String item){
         return new Button(By.xpath("//div[@class='ItemContentDiv' and text()='"+item+"']"));
     }
-
+    public Button selectProjectButton(String projectName){
+        return new Button(By.xpath("//td[text()='"+projectName+"']"));
+    }
     public TextBox newItemTb(){
         return new TextBox(By.xpath("//div[@class='ItemContentDiv UnderEditingItem']//div[@id='ItemEditDiv']//textarea[@id='ItemEditTextbox']"));
     }

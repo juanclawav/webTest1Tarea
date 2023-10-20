@@ -5,13 +5,14 @@ import web.controls.Button;
 import web.controls.TextBox;
 
 public class registerPage {
-    TextBox emailTextBox = new TextBox(By.xpath("//input[@type='email']"));
-    TextBox pwTextBox = new TextBox(By.xpath("//input[@type='password']"));
-    Button registerBtn = new Button(By.xpath("//button[@type='submit']"));
-    TextBox accountNameTb = new TextBox(By.xpath("//input[@placeholder='E.g. Jane Doist']"));
-    Button submitNameBtn = new Button(By.xpath("//span[text()='Continue']/parent::button"));
-    Button markPersonalBtn = new Button(By.xpath("//button[@aria-label='Personal']"));
-    Button launchBtn = new Button(By.xpath("//button[@aria-label='Launch Todoist']"));
+    public TextBox emailInput = new TextBox(By.xpath("//input[@type='email']"));
+    public TextBox passwordInput = new TextBox(By.xpath("//input[@type='password']"));
+    public Button signInButton = new Button(By.xpath("//button[span[text()='Sign up with Email']]"));
 
+    public TextBox nameInput = new TextBox(By.xpath("//input[@type='text']"));
+    public Button continueButton = new Button(By.xpath("//button[span[text()='Continue']]"));
+
+    public Button personalAccountButton = new Button(By.xpath("//div[text()='Personal']"));
+    public Button launchButton = new Button(By.xpath("//button[span[text()='Launch Todoist']]"));
 
 }

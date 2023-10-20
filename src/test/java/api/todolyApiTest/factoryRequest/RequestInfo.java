@@ -1,14 +1,25 @@
-package api.factoryRequest;
+package api.todolyApiTest.factoryRequest;
 
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class RequestInfo {
+
+    private boolean basicAuthNeeded = false;
     private String url;
     private String body;
     private Map<String,String> headers = new HashMap<>();
     private Map<String,String> params =  new HashMap<>();
+
+    public boolean isBasicAuthNeeded() {
+        return basicAuthNeeded;
+    }
+
+    public RequestInfo setBasicAuthNeeded(boolean basicAuthNeeded) {
+        this.basicAuthNeeded = basicAuthNeeded;
+        return this;
+    }
 
     public String getUrl() {
         return url;
@@ -32,7 +43,7 @@ public class RequestInfo {
         return headers;
     }
 
-    public RequestInfo setHeaders(String key, String value) {
+    public RequestInfo addHeader(String key, String value) {
         this.headers.put(key, value);
         return this;
     }
@@ -41,7 +52,7 @@ public class RequestInfo {
         return params;
     }
 
-    public RequestInfo setParams(String key, String value) {
+    public RequestInfo addParam(String key, String value) {
         this.params.put(key, value);
         return this;
     }

@@ -1,6 +1,6 @@
-package api.testSuite.e4APITarea;
+package api.todolyApiTest.testSuite.e4APITarea;
 
-import api.factoryRequest.RequestInfo;
+import api.todolyApiTest.factoryRequest.RequestInfo;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 

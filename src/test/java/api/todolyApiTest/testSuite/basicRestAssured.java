@@ -1,4 +1,4 @@
-package api.testSuite;
+package api.todolyApiTest.testSuite;
 
 import org.junit.jupiter.api.Test;
 

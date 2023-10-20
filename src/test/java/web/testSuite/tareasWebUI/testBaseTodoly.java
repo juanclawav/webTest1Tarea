@@ -13,6 +13,8 @@ public class testBaseTodoly {
     protected SettingsPage settingsPage = new SettingsPage();
     protected signupPopup signupPopup = new signupPopup();
 
+
+
     @BeforeEach
     public void openBroswer() {
         Session.getInstance().goTo("https://todo.ly/");
